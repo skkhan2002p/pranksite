@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER_CORE // Terminal Access</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="app-container">
+        <!-- Top Status Bar -->
+        <header class="status-bar">
+            <div class="brand">
+                <span class="pulse-dot"></span>
+                <span class="title">CYBER_CORE v4.09 [ROOT]</span>
+            </div>
+            <div class="system-stats">
+                <span id="targetDisplay">TARGET: SECURE_SERVER_01</span>
+                <span class="badge warning" id="secLevel">SEC_LEVEL: CRITICAL</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <div class="terminal-card">
+                <div class="card-header">
+                    <span class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </span>
+                    <span class="header-text">bash - root@cybercore:~#</span>
+                    <button id="soundToggle" class="icon-btn" aria-label="Toggle Sound">
+                        <svg class="speaker-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 010 7.07M19.07 4.93a10 10 0 010 14.14"/>
+                        </svg>
+                        <span id="soundStatus">AUDIO: ON</span>
+                    </button>
+                </div>
+
+                <div class="terminal-body" id="terminalOutput">
+                    <div class="log-line system">[SYSTEM INITIALIZED] Matrix protocol online.</div>
+                    <div class="log-line warning">WARNING: Unauthorized access attempt logging active...</div>
+                    <div class="log-line info">Type or tap action buttons below to initiate brute-force payload.</div>
+                </div>
+
+                <!-- Live Command Prompt Display -->
+                <div class="prompt-line">
+                    <span class="prompt-symbol">&gt;</span>
+                    <span id="currentCommand" class="command-text">EXECUTE_EXPLOIT_SEQUENCE --force</span>
+                    <span class="cursor">_</span>
+                </div>
+            </div>
+
+            <!-- Action Control Buttons -->
+            <div class="control-panel">
+                <div class="input-group">
+                    <input type="text" id="targetNameInput" placeholder="Enter Target Name (e.g. NASA Mainframe, Alex's Phone)" maxlength="30">
+                    <button id="setTargetBtn" class="btn secondary-btn">SET TARGET</button>
+                </div>
+
+                <div class="btn-grid">
+                    <button class="btn primary-btn" id="btnHack">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        INJECT EXPLOIT
+                    </button>
+                    <button class="btn accent-btn" id="btnBypass">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                        BYPASS FIREWALL
+                    </button>
+                    <button class="btn danger-btn" id="btnDump">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        DUMP DATABASE
+                    </button>
+                    <button class="btn custom-btn" id="btnInstantGrant">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        FORCE ACCESS
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ACCESS GRANTED POPUP MODAL -->
+    <div id="accessModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-glow"></div>
+            <div class="modal-header">
+                <div class="shield-icon">
+                    <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#00ff66" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h1 class="modal-title">ACCESS GRANTED</h1>
+                <p class="modal-subtitle">SYSTEM BREACH SUCCESSFUL</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="target-card">
+                    <div class="row"><span>TARGET:</span> <strong id="modalTarget">SECURE_SERVER_01</strong></div>
+                    <div class="row"><span>STATUS:</span> <span class="highlight-green">FULLY COMPROMISED</span></div>
+                    <div class="row"><span>DATA EXFILTRATED:</span> <span>1.42 TB [ENCRYPTED]</span></div>
+                    <div class="row"><span>SECURITY LEVEL:</span> <span class="highlight-red">BYPASSED (0%)</span></div>
+                </div>
+
+                <div class="prank-badge">
+                    <span>⚠️ PRANK MODE ACTIVE - YOU'VE BEEN HACKED! ⚠️</span>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button id="restartPrankBtn" class="btn primary-btn full-width">RESTART HACK SEQUENCE</button>
+                <button id="closeModalBtn" class="btn secondary-btn full-width">DISMISS ALERT</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
